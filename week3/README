@@ -1,0 +1,36 @@
+Zak Olyarnik
+CS-260
+hw3
+
+problem1.py
+-computes the xth Fibonacci number recursively
+-fib() uses a very simple algorithm with two base cases
+
+problem2.py
+-computes the xth Fibonacci number using memoisation
+-fib_memo() creates a Python list F of 100 slots is initialized with -1s, adds 
+the base cases, and calls fib_()
+-fib_() checks F to see if the number has already been computed and stored,
+and if not, computes it in the same way as fib() did, then stores that
+answer in F
+-this ensures that future runs will be faster because less actual
+computation is needed
+
+problem3.py
+-uses provided time function code to time the efficiency of
+problem1 and problem2
+-the resulting data is printed to screen and to a file for
+further use
+
+other
+-the timed data is then plotted using other provided functions
+-the plot can be accessed using an eog command.  It was not visible
+on the version of SSH I run, but I transfered the .png file and was
+able to verify its accuracy by viewing it elsewhere
+-the "args" variable must be set before invoking the makefile in order
+to run problem1 and problem2
+-This assignment was simple and straightforward.  The only potential unclarity
+was addressed on the message boards, about when we should be clearing the
+memo vector.  And also that it changed partway through, necesitating changes
+(albeit relatively easy ones) to the code after the fact.
+

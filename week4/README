@@ -1,0 +1,20 @@
+Zak Olyarnik
+CS-260
+hw4
+
+Creating and parsing through expression trees was a very easy assignment,
+very reminiscent of CS-270.  I just wanted to make note of two things:
+
+1) I created a Node class, with attributes .data, .left, and .right.  Single
+nodes are created from the operand results of the tokenizing function provided
+in the lexor code, and operators merge them into trees.  Making a node with
+.left and .right avoids having to make a separate tree class, and also makes
+the code a lot more readable than the example of using the triplet lists.
+
+2) I did the extra credit, evaluation, also very easy after having taken
+CS-270.  The only stumbling block was figuring exactly when to convert to
+integers so that math could be done but it wasn't trying to access the
+.left, .right, and .data of an integer class which had none.  It turned out
+that this needed to be done in the evaluation of the numeric base case (as
+opposed to on either side of the operator cases, which would only work if
+the tree had a height of two).

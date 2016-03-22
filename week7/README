@@ -1,0 +1,33 @@
+Zak Olyarnik
+CS-260
+hw7
+
+I started out with a Node class, which let me define value, parent, and size
+attributes.  Initialize() iterates through the integers in the Values list that
+is given and creates a new list of nodes from them, each having itself as a
+parent, size 1, and value being the actual number.  Initialize() returns
+this list.
+
+Find() returns the root of the entire set containing the given number,
+achieved by walking upwards through the chain of parents until it reaches
+the root, then returns it.  At each step, it also recursively calls itself
+in order to adjust the all of the parents along the way to point to the root
+for path compression.  The only hitch is that Find() is passed integers, not
+nodes, so I need to convert before doing anything, and then convert back to
+do the recursion.
+
+Merge() finds the roots of both of the items in question.  If they're
+already the same, they belong to the same set and no further action is
+taken.  Otherwise it compares the size attributes, always appending the
+smaller one to the larger by adjusting the smaller's root's parent.  The
+size of the overall root is always increased to ensure that smaller sets
+will always be merged into larger ones.  If they're the same size, one is
+arbitrarily chosen and the size field is updated for the other.  Again, the 
+integer data passed in must be convereted into nodes in order to work with it.
+
+This assignment wasn't particularly difficult, but it was stranger than the
+previous ones because everything has become so conceptual.  I read a lot
+about disjoint set implementations and understand how and why my code works,
+but there is no visual output to confirm that things are actually happening.
+At least the provided test-set-new.py has a confirmation message that all
+tests have passed, which was more than the first version had.

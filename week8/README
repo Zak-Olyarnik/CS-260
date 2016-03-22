@@ -1,0 +1,30 @@
+Zak Olyarnik
+CS-260
+hw8
+
+I started by reading the data from stdin, immediately splitting by space and
+then looking for commas to find the total number of nodes.  This lets me
+start to build a map to represent the entire graph.  Then I go back to the
+ones that did have commas, split them into node and weight, and put
+everything in the graph.  Once I have a complete graph, I call floyd(graph)
+which does the rest.
+
+floyd(graph) sets up distance and predecessor matrices.  My implementation
+stuffs, in default values of 0 down the distance diagonal, INF everywhere
+else, and the node as its own predecessor in the predecessor matrix.  Then,
+in another pass, it fills in the weights it knows from the graph.  This step
+places the weights in both the A-B and B-A slots in the matrix, because the
+graph is specified to be undirected.  Then it does the actual matrix math,
+running the triply-nested loop and adjusting the matrices if the currently
+discovered path is shorter than the established one.
+
+Finally, the resulting matrices are printed, including the column
+formatting.  I also took measures to print "INF" as requested, but I believe
+that this will never actually be printed for an undirected graph...
+
+The Floyd algorithm was actually very easy to implement on its own; the hard
+part was converting the input to a useable format.  Python's map leant
+itself to the storage of the graph, but the data needed to be read in from
+stdin, split by space, and then further manipulated to determine the number
+of nodes and to split them from their weights.  Then I ended up drawing out
+a lot of graph examples to prove to myself that everything worked.

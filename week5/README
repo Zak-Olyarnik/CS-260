@@ -1,0 +1,28 @@
+Zak Olyarnik
+CS-260
+hw5
+
+I started by creating a Heap class, which, in addition to having a .makeHeap
+method and the .downHeap needed to help it, also includes the other priority
+queue operations like .insert and .upHeap.  The directions said to
+"implement a priority queue", so I thought it should have all of the normal
+functionality, even if the rest of it is not used in the core of the
+assignment.  There's also a lot of subtlety in the class, such as stuffing a
+0 into array[0] so that the left and right children simplify to 2i and 2i+1,
+respectively, and the parent is i/2.
+
+I had a lot of problems with the timeit function this time around.  First,
+it didn't like that .makeHeap was a method, not a function, so I wrote a
+dummy make_heap which simply called it.  But I still couldn't have arguments
+with timeit, so I attempted another wrapper script like we used for hw2.
+But for some reason it couldn't pick up my heap or array in the same way
+that it got the lists in hw2.  I tried a few other things and looked up the
+timeit documentation, but I still couldn't get anything to work and resorted
+to making my heap and array into global variables.  I know that this is
+generally frowned upon, but it got timeit to work without all the extra
+bouncing around.
+
+I ran make_heap with arrays full of random numbers, sized 10000 to 100000
+elements.  I wasn't sure if this was a good or even a realistic range but
+the largest was still timed at under 200 ms so it at least it won't hold up
+any computers.

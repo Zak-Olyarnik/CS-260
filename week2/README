@@ -1,0 +1,50 @@
+Zak Olyarnik
+CS-260
+hw2
+
+linkedList.py
+-builds on the cell class to create a linked list
+-LinkedList has attributes .first and .last, which are effectively
+pointers to the first and last cells in the list
+-LinkedList has a modified .__str__ function which walks the list
+and prints all of the cell data to a string
+-LinkedList has a .add function which allows the addition of cells
+at the end of the list.  It is very important to also update the 
+.last attribute here!
+
+problem1.py
+-creates lists based on arbitrary cells
+-function list_concat concatenates two lists by changing the
+.next value of the last cell of list A from null to the first
+value of list B (A.last.next = B.first)
+-this is very easy because of the way LinkedList was implemented
+
+problem2.py
+-creates lists based on arbitrary cells
+-function list_concat_copy concatenates two lists by walking both
+and adding all the data to a third, new list
+-this is done so that future changes to either of the base lists
+do not affect the new list
+
+problem3.py
+-uses provided time function code to time the efficiency of
+problem1 and problem2
+-lists of thousands of elements are created using a for loop
+and the LinkedList.add function
+-the resulting data is printed to screen and to a file for
+further use
+
+other
+-the timed data is then plotted using other provided functions
+-the plot can be accessed using an eog command.  It was not visible
+on the version of SSH I run, but I transfered the .png file and was
+able to verify its accuracy by viewing it elsewhere
+-typing 'make run' will run all three programs and display the source
+code
+-Overall, the only problems I had were not understanding the assignment 
+instructions about copying/not copying the lists.  It eventually made
+sense that you just wanted a changed pointer for problem1 and a third,
+independent list for problem2, but the wording online is pretty poor.
+-The timing function was another hurdle but someone else had the exact
+same problem I did, so I was able to follow the solution provided on the
+message boards.
